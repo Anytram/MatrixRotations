@@ -5,9 +5,8 @@
  */
 package pl.edu.utp.matrixrotation.init;
 
-import pl.edu.utp.matrixrotation.panels.Matrix2x2;
-import pl.edu.utp.matrixrotation.panels.Matrix3x3;
 import pl.edu.utp.matrixrotation.panels.Matrixnxn;
+
 
 /**
  *
@@ -22,9 +21,8 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         setTitle("Matrix rotation methods");
         setSize(1000, 800);
-        jTabbedPane1.add("Matrix 2x2", new Matrix2x2());
-        jTabbedPane1.add("Matrix 3x3", new Matrix3x3());
         jTabbedPane1.add("Matrix nxn", new Matrixnxn());
+
     }
 
     /**
