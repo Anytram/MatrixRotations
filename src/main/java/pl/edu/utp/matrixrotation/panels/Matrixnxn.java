@@ -19,7 +19,7 @@ import pl.edu.utp.operations.Transposition;
  */
 public class Matrixnxn extends javax.swing.JPanel {
 
-    private Formatter ioParser = new Formatter();
+    private Formatter formatter = new Formatter();
     private Transposition transposition = new Transposition();
     private MatrixRotation matrixRotation = new MatrixRotation();
 
@@ -190,12 +190,13 @@ public class Matrixnxn extends javax.swing.JPanel {
                                 .addComponent(jScrollPane1)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)))
+                                .addGap(26, 26, 26))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                             .addComponent(jScrollPane4))
@@ -213,11 +214,11 @@ public class Matrixnxn extends javax.swing.JPanel {
 
         String[] items = text.replaceAll("\\s", "").split(",");
         if (Math.sqrt(items.length) % 1 == 0) {
-            if (ioParser.formatInput(items) == null) {
+            if (formatter.formatInput(items) == null) {
                 jTextPane1.setText("\n" + "\n" + "\n" + "Wrong character.");
             } else {
-                jTextPane3.setText("Matrix after rotation: " + "\n" + "\n" + transposition.rotate(ioParser.formatInput(items)));
-                jTextPane1.setText("Input matrix: " + "\n" + "\n" + ioParser.formatOutput(ioParser.formatInput(items)));
+                jTextPane3.setText("Matrix after rotation: " + "\n" + "\n" + transposition.rotate(formatter.formatInput(items)));
+                jTextPane1.setText("Input matrix: " + "\n" + "\n" + formatter.formatOutput(formatter.formatInput(items)));
 
             }
         } else {
@@ -245,13 +246,13 @@ public class Matrixnxn extends javax.swing.JPanel {
         if (degrees != 0) {
             String[] items = text.replaceAll("\\s", "").split(",");
             if (Math.sqrt(items.length) % 1 == 0) {
-                if (ioParser.formatInput(items) == null) {
+                if (formatter.formatInput(items) == null) {
                     jTextPane2.setText("");
                     jTextPane1.setText("\n" + "\n" + "\n" + "Wrong character.");
                 } else {
            
-                    jTextPane2.setText("Matrix after rotation: " + "\n" + "\n" +  matrixRotation.rotate(ioParser.formatInput(items), degrees));
-                    jTextPane1.setText("Input matrix: " + "\n" + "\n" + ioParser.formatOutput(ioParser.formatInput(items)));
+                    jTextPane2.setText("Matrix after rotation: " + "\n" + "\n" +  matrixRotation.rotate(formatter.formatInput(items), degrees));
+                    jTextPane1.setText("Input matrix: " + "\n" + "\n" + formatter.formatOutput(formatter.formatInput(items)));
 
                 }
             } else {
